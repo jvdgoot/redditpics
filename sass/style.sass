@@ -1,0 +1,31 @@
+@import compass/reset
+@import compass/css3
+
+$color_background: #011C26
+$color_header: #038C7F
+
+body
+  background: $color_background
+  color: invert($color_background)
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif
+
+header
+  +box-sizing(border-box)
+  width: 100%
+  padding: (16rem/16) (32rem/16)
+  background: $color_header
+  overflow: hidden
+  h1
+    float: left
+    color: $color_background
+    font-size: (48rem/16)
+  span.amount_of_pics
+    float: right
+    color: $color_background
+    font-size: (48rem/16)
+
+section#pics
+  +box-sizing(border-box)
+  padding: 0
+  margin: 0
+  width: 100%
