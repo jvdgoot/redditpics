@@ -22,44 +22,25 @@ $(document).ready(function(){
 
         // console.log(reddit.data.url.search("jpg"));
 
-          if (reddit.data.url.search("jpg") != -1 || reddit.data.url.search("png") != -1 || reddit.data.url.search("jpeg") != -1 || reddit.data.url.search("gif") != -1)
+          if (reddit.data.url.search("jpg") != -1 || reddit.data.url.search("png") != -1 || reddit.data.url.search("jpeg") != -1)
           {
-            $("section#pics").append('<a href="'+reddit.data.url+'" target="_blank"><img src="'+reddit.data.url+'"></a>');
+            $("section#pics").append('<a href="'+reddit.data.url+'" class="picture" target="_blank"><img src="'+reddit.data.url+'"></a>');
           }
         }
       });
 
 
     }).success(function(){
-      var pic_container = $("#pics");
-      var images = $(pic_container).find("a img");
-      $(images).hide();
-      var amount_images = images.length;
-      var count = 0;
+        var container = $("#pics");
+        var images = $(container).find(".picture");
+        var images_count = images.length;
+        $(".amount_of_pics").html(images_count);
 
-      $(".amount_of_pics").html(amount_images);
-
-      $(images).each(function(i){
-        var image = $(i);
-
-        $("img").load(function() {
-          count++;
-
-          if( count === amount_images ){
-            $(images).show();
-            $(pic_container).montage({
-              margin: 0,
-              fillLastRow: true,
-              alternateHeight: true,
-              alternateHeightRange: {
-                min: 300,
-                max: 500
-              }
-            });
-          }
+        $("#pics").imagesLoaded(function(){
+          $("#pics").masonry({
+            itemSelector: '.picture'
+          });
         });
-
-      });
     });
 
   });
