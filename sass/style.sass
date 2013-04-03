@@ -1,5 +1,6 @@
 @import compass/reset
 @import compass/css3
+@import compass/utilities
 
 $color_background: #011C26
 $color_header: #038C7F
@@ -39,3 +40,14 @@ section#pics
     img
       display: block
       width: 100.5%
+
+a#more
+  +hover-link
+  display: inline-block
+  width: 100%
+  text-align: center
+  background: $color_header
+  color: $color_background
+  font-size: (21rem/16)
+  font-weight: bold
+  line-height: 3em
