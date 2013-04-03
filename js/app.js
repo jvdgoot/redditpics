@@ -13,7 +13,7 @@ $(document).ready(function(){
 
 
 
-    $.getJSON("http://www.reddit.com/r/"+urlParameters.reddits+".json?limit=100&jsonp=?", function(json){
+    $.getJSON("http://www.reddit.com/r/"+urlParameters.reddits+".json?limit=20&jsonp=?", function(json){
 
 
       $.each(json.data.children,function(i,reddit){
