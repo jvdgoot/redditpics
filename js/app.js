@@ -5,6 +5,7 @@ $(document).ready(function(){
   var reddits = getUrlVars().reddits;
 
   $("body").attr("data-reddits", reddits);
+  $(".whatreddits").html(reddits);
 
   $("#pics").masonry({itemSelector: '.picture', isResizable: true});
 

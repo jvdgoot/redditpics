@@ -16,10 +16,19 @@ header
   padding: (16rem/16) (32rem/16)
   background: $color_header
   overflow: hidden
+  position: fixed
+  z-index: 999
   h1
     float: left
     color: $color_background
     font-size: (48rem/16)
+  span.whatreddits
+    float: left
+    margin-left: 10px
+    color: $color_background
+    font-size: (16rem/16)
+    position: relative
+    top: (27rem/16)
   span.amount_of_pics
     float: right
     color: $color_background
@@ -28,6 +37,7 @@ header
 section#pics
   padding: 0
   margin: 0
+  padding-top: 80px
   display: block
   position: relative
   width: 100%
