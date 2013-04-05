@@ -18,6 +18,9 @@ header
   overflow: hidden
   position: fixed
   z-index: 999
+  @media only screen and (max-width: 479px)
+    display: none
+    visibility: hidden
   h1
     float: left
     color: $color_background
@@ -29,6 +32,9 @@ header
     font-size: (16rem/16)
     position: relative
     top: (27rem/16)
+    @media only screen and (max-width: 700px)
+      display: none
+      visibility: hidden
   span.amount_of_pics
     float: right
     color: $color_background
@@ -41,12 +47,21 @@ section#pics
   display: block
   position: relative
   width: 100%
+  @media only screen and (max-width: 479px)
+    padding-top: 0px
   a.picture
     margin: 0
     padding: 0
     display: block
     float: left
-    width: 19.9%
+    @media only screen and (min-width: 1600px)
+      width: 16.5%
+    @media only screen and (min-width: 1281px) and (max-width: 1600px)
+      width: 19.9%
+    @media only screen and (min-width: 700px) and (max-width: 1280px)
+      width: 33.2%
+    @media only screen and (max-width: 699px)
+      width: 49.9%
     img
       display: block
       width: 100.5%
