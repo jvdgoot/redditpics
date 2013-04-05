@@ -14,14 +14,23 @@ function getRedditPics(reddits, limit, after) {
 
 function addPicsToDOM(redditJSON) {
   $("body").attr("data-after", redditJSON.data.after);
-  var pagenr = parseFloat($("body").attr("data-iteration")) + 1;
   $.each(redditJSON.data.children,function(i,reddit){
 
        if (reddit.data.is_self === false && reddit.data.thumbnail != "" ) {
 
           if (reddit.data.url.search("jpg") != -1 || reddit.data.url.search("png") != -1 || reddit.data.url.search("jpeg") != -1)
           {
-            $("section#pics").append('<a href="'+reddit.data.url+'" class="picture nr'+pagenr+'" target="_blank"><img src="'+reddit.data.url+'"></a>');
+            var picThumbnail = reddit.data.url;
+
+            if (reddit.data.domain == "i.imgur.com")
+            {
+              var fileExtensionDot = picThumbnail.lastIndexOf(".");
+              var picPath = picThumbnail.substr(0,fileExtensionDot)+"l";
+              var picExtension = picThumbnail.substr(fileExtensionDot);
+              picThumbnail = picPath+picExtension;
+            }
+
+            $("section#pics").append('<a href="'+reddit.data.url+'" class="picture" target="_blank"><img src="'+picThumbnail+'"></a>');
           }
         }
       });
@@ -38,14 +47,15 @@ function morePics(){
 $(document).ready(function(){
   var reddits = getUrlVars().reddits;
 
-  $("body").attr({
-    "data-reddits": reddits,
-    "data-iteration": 0}
-    );
+  $("body").attr("data-reddits", reddits);
 
-  $("#pics").masonry({itemSelector: '.picture'});
+  $("#pics").masonry({itemSelector: '.picture', isResizable: true});
 
   getRedditPics($("body").attr("data-reddits"), 20, "");
+
+  $(window).resize(function(){
+    $("#pics").masonry('reload');
+  });
 
 
 });
