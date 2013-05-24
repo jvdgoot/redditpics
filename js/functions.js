@@ -23,12 +23,12 @@ function detectThumbnail(picDomain, picURL) {
     var picExtension = picURL.substr(fileExtensionDot);
     picThumbnail = picPath+picExtension;
   }
-  else if (picDomain.search("minus.com") != -1) {
-    var fileExtensionDot = picURL.lastIndexOf(".");
-    var picPath = picURL.substr(0,fileExtensionDot)+"_e";
-    var picExtension = picURL.substr(fileExtensionDot);
-    picThumbnail = picPath+picExtension;
-  }
+  // else if (picDomain.search("minus.com") != -1) {
+  //   var fileExtensionDot = picURL.lastIndexOf(".");
+  //   var picPath = picURL.substr(0,fileExtensionDot)+"_e";
+  //   var picExtension = picURL.substr(fileExtensionDot);
+  //   picThumbnail = picPath+picExtension;
+  // }
   else {
     picThumbnail = picURL;
   }

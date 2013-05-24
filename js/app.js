@@ -7,7 +7,7 @@ $(document).ready(function(){
   $("body").attr("data-reddits", reddits);
   $(".whatreddits").html(reddits);
 
-  $("#pics").masonry({itemSelector: '.picture', isResizable: true, isAnimated: true });
+  $("#pics").masonry({itemSelector: '.picture', isResizable: true, isAnimated: false });
 
   getRedditPics($("body").attr("data-reddits"), 20, "");
 
